@@ -1,0 +1,20 @@
+{
+    "name": "alpine-snippets",
+    "displayName": "Alpine_Snippets",
+    "description": "helpful snippets to improve developer experience while using alpinejs in astro, ",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.63.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "astro , html",
+                "path": "./snippets/snippets.code-snippets"
+            }
+        ]
+    }
+}
