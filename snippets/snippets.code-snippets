@@ -1,6 +1,4 @@
 /*
-    
-    
     Directives 
         x-data
         x-init
@@ -18,12 +16,8 @@
         x-transition
         x-teleport
         x-effect
-        x-ignore
-       
-       
-       
-       
-        */
+        x-ignore      
+*/
 {
     "alpinejs x-data": {
         "prefix": "x-data",
