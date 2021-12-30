@@ -1,1 +1,395 @@
-{}
+/*
+    
+    
+    Directives 
+        x-data
+        x-init
+        x-cloak
+        x-bind
+        x-text
+        x-show
+        x-id
+        x-on
+        x-if
+        x-ref
+        x-for
+        x-model
+        x-html
+        x-transition
+        x-teleport
+        x-effect
+        x-ignore
+       
+       
+       
+       
+        */
+{
+    "alpinejs x-data": {
+        "prefix": "x-data",
+        "body": [
+            "x-data=\"{ ${1:data} : ${2| ' ', 0 |} }\""
+        ],
+        "description": "Declare a new Alpine component and its data for a block of HTML"
+    },
+    "alpinejs x-data Open": {
+        "prefix": "x-data:open",
+        "body": [
+            "x-data=\"{ ${1:open}:${2:|false,true|} }\""
+        ]
+    },
+    /* x-init */
+    "alpinejs x-init": {
+        "prefix": "x-init",
+        "body": [
+            "x-init=\" ${1:code to be insialized} \""
+        ],
+        "description": "Run code when an element is initialized by Alpine"
+    },
+    /* alpinejs console.log */
+    "alpinejs x-init:log": {
+        "prefix": "x-init-log",
+        "body": [
+            "x-init=\" console.log(${1:data}) \""
+        ],
+        "description": "console.log when an element is initialized by Alpine"
+    },
+    /* x-cloak */
+    "alpinejs x-cloak": {
+        "prefix": "x-cloak",
+        "body": "x-cloak",
+        "description": "used to hiding the element, it attached to until Alpine is fully loaded on the page.",
+    },
+    /* x-bind */
+    "alpine_js x-bind:attr": {
+        "prefix": "x-bind",
+        "body": [
+            "x-bind:${1:attribute}=\"${2:expression}\""
+        ],
+        "description": "x-bind sets the value of an attribute to the result of a JavaScript expression. The expression has access to all the keys of the component's data object, and will update every-time its data is updated."
+    },
+    "alpine_js x-bind:class": {
+        "prefix": "x-bind:class",
+        "body": [
+            "x-bind:class=\"{ '${1:hidden}': ${2:foo} }\""
+        ],
+        "description": "Dynamically set HTML attributes on an element"
+    },
+    /* x-text */
+    "alpine_js x-text": {
+        "prefix": "x-text",
+        "body": [
+            "x-text=\"${1|' ',data|}\""
+        ],
+        "description": "x-text sets the text content of an element to the result of a given expression."
+    },
+    /* x-show */
+    "alpine_js x-show": {
+        "prefix": "x-show",
+        "body": [
+            "x-show=\"$0\""
+        ],
+        "description": "Toggle the visibility of an element"
+    },
+    /* x-id <--> */
+    "alpinejs x-id": {
+        "prefix": "x-id",
+        "body": [
+            "x-id=\"['${1:group-id}']\""
+        ],
+        "description": "It accepts an array of strings (ID names),x-id allows you to declare a new \"scope\" for any new IDs generated using $id()"
+    },
+    /* x-on */
+    "alpine_js x-on:event": {
+        "prefix": "x-on",
+        "body": [
+            "x-on:${1:event}=\"${2:handleFunction}\""
+        ],
+        "description": "Listen for browser events on an element",
+    },
+    "alpine_js x-on:click": {
+        "prefix": "x-on:click",
+        "body": [
+            "x-on:click=\"${2:handleFunction}\""
+        ],
+        "description": "Listen for browser events on an element",
+    },
+    /* x-if */
+    "alpine_js x-if": {
+        "prefix": "x-if",
+        "body": [
+            "<template x-if=\"${1:true}\">",
+            "\t$0",
+            "</template>"
+        ],
+        "description": "Conditionally add/remove a block of HTML from the page entirely."
+    },
+    /* x-ref <-> $refs */
+    "alpinejs x-ref": {
+        "prefix": "x-ref",
+        "body": [
+            "x-ref=\" ${1:reference} \""
+        ],
+        "description": "Reference elements directly by their specified keys using the $refs magic property"
+    },
+    /* x-for */
+    "alpine_js x-for": {
+        "prefix": "x-for",
+        "body": [
+            "<template x-for=\"${1:item} in ${2:items}\">",
+            "\t$0",
+            "</template>"
+        ],
+        "description": "x-for directive allows you to create DOM elements by iterating through a list. \n Here's a simple example of using it to create a list of colors based on an array."
+    },
+    "alpine_js x-for with :key": {
+        "prefix": "x-for-key",
+        "body": [
+            "<template x-for=\"${1:item} in ${2:items}\" :key=\"${3:item}\">",
+            "\t$0",
+            "</template>"
+        ]
+    },
+    "alpine_js x-for with index": {
+        "prefix": "x-for-index",
+        "body": [
+            "<template x-for=\"(${1:item}, ${2:index}) in ${3:items}\" :key=\"$2\">",
+            "\t$0",
+            "</template>"
+        ]
+    },
+    /* x-model */
+    "alpinejs x-model": {
+        "prefix": "x-model",
+        "body": [
+            "x-model=\"${0}\""
+        ],
+        "description": "x-model allows you to bind the value of an input element to Alpine data."
+    },
+    /* x-html */
+    "alpinejs x-html": {
+        "prefix": "x-html",
+        "body": [
+            "x-html=\" ${1:innerHTML} \""
+        ],
+        "description": "Set the inner HTML of an element"
+    },
+    /* Transition */
+    "alpine_js x-transition Sample": {
+        "prefix": "x-transition-sample",
+        "body": [
+            "x-transition:enter=\"transition ease-out duration-300\"",
+            "x-transition:enter-start=\"opacity-0 scale-90\"",
+            "x-transition:enter-end=\"opacity-100 scale-100\"",
+            "x-transition:leave=\"transition ease-in duration-300\"",
+            "x-transition:leave-start=\"opacity-100 scale-100\"",
+            "x-transition:leave-end=\"opacity-0 scale-90\"\\"
+        ],
+        "description": "a example of x-tansition applying classes"
+    },
+    "alpine_js x-transition:enter": {
+        "prefix": "x-transition:enter",
+        "body": [
+            "x-transition:enter=\"$0\""
+        ],
+        "description": "Applied during the entire entering phase."
+    },
+    "alpine_js x-transition:enter-start": {
+        "prefix": "x-transition:enter-start",
+        "body": [
+            "x-transition:enter-start=\"$0\""
+        ],
+        "description": "Added before element is inserted, removed one frame after element is inserted."
+    },
+    "alpine_js x-transition:enter-end": {
+        "prefix": "x-transition:enter-end",
+        "body": [
+            "x-transition:enter-end=\"$0\""
+        ],
+        "description": "Added one frame after element is inserted (at the same time enter-start is removed), removed when transition/animation finishes."
+    },
+    "alpine_js x-transition:leave": {
+        "prefix": "x-transition:leave",
+        "body": [
+            "x-transition:leave=\"$0\""
+        ],
+        "description": "Applied during the entire leaving phase."
+    },
+    "alpine_js x-transition:leave-start": {
+        "prefix": "x-transition:leave-start",
+        "body": [
+            "x-transition:leave-start=\"$0\""
+        ],
+        "description": "Added immediately when a leaving transition is triggered, removed after one frame."
+    },
+    "alpine_js x-transition:leave-end": {
+        "prefix": "x-transition:leave-end",
+        "body": [
+            "x-transition:leave-end=\"$0\""
+        ],
+        "description": "Added one frame after a leaving transition is triggered (at the same time leave-start is removed), removed when the transition/animation finishes."
+    },
+    /* x-teleport */
+    "alpinejs x-teleport": {
+        "prefix": "x-teleport",
+        "body": [
+            "<template x-teleport=\"$1\" >",
+            "\t$0",
+            "</template>"
+        ],
+        "description": "The x-teleport directive allows you to transport part of your Alpine template to another part of the DOM on the page entirely. Useful for Model ..."
+    },
+    /* x-effect */
+    "alpinejs x-effect": {
+        "prefix": "x-effect",
+        "body": "x-effect=\" ${1:expression} \"",
+        "description": "here, x-effect expression will be run and will be run when it's dependencies change, checkout docs for more information.",
+    },
+    "alpinejs x-effect-console": {
+        "prefix": "x-effect:console",
+        "body": "x-effect=\"console.log(${0})\"",
+        "description": "here, x-effect expression will be run and will be logged into the console when it's dependencies change, checkout docs for more information.",
+    },
+    "alpinejs x-ignore": {
+        "prefix": "x-ignore",
+        "body": [
+            "x-ignore"
+        ],
+        "description": "If you don't want Alpine to touch a specific section of your HTML,\n you can prevent it from doing so using x-ignore."
+    },
+    "alpine_js $el": {
+        "prefix": "$el",
+        "body": [
+            "\\$el"
+        ],
+        "description": "$el is a magic property that can be used to retrieve the root component DOM node."
+    },
+    "alpine_js $refs": {
+        "prefix": "$refs",
+        "body": [
+            "\\$refs.${1:name}"
+        ],
+        "description": "$refs is a magic property that can be used to retrieve DOM elements marked with x-ref inside the component. This is useful when you need to manually manipulate DOM elements."
+    },
+    "alpine_js $event": {
+        "prefix": "$event",
+        "body": [
+            "\\$event"
+        ],
+        "description": "$event is a magic property that can be used within an event listener to retrieve the native browser Event object."
+    },
+    "alpine_js $dispatch": {
+        "prefix": "$dispatch",
+        "body": [
+            "\\$dispatch('${1:custom-event}', ${2:{ foo: 'bar' \\}})"
+        ],
+        "description": "$dispatch is a shortcut for creating a CustomEvent and dispatching it using .dispatchEvent() internally. You will notice that any data passed as the second parameter to $dispatch('some-event', { some: 'data' }), becomes available through the new events detail property: $event.detail.some."
+    },
+    "alpine_js $nextTick": {
+        "prefix": "$nextTick",
+        "body": [
+            "\\$nextTick(${1:() => { console.log(\\$event.target.innerText) \\}});"
+        ],
+        "description": "$nextTick is a magic property that allows you to only execute a given expression AFTER Alpine has made its reactive DOM updates. This is useful for times you want to interact with the DOM state AFTER it's reflected any data updates you've made."
+    },
+    "alpine_js $watch": {
+        "prefix": "$watch",
+        "body": [
+            "\\$watch('${1:open}', ${2:value => console.log(value)})"
+        ],
+        "description": "You can \"watch\" a component property with the $watch magic method. In the above example, when the button is clicked and open is changed, the provided callback will fire and console.log the new value."
+    },
+    "alpine_js .away": {
+        "prefix": ".away",
+        "body": [
+            ".away"
+        ],
+        "description": "When the .away modifier is present, the event handler will only be executed when the event originates from a source other than itself, or its children.\r\n\r\nThis is useful for hiding dropdowns and modals when a user clicks away from them."
+    },
+    "alpine_js .prevent": {
+        "prefix": ".prevent",
+        "body": [
+            ".prevent"
+        ],
+        "description": "Adding .prevent to an event listener will call preventDefault on the triggered event. For example, this means the checkbox wouldn't actually get checked when a user clicks on it.\r\nThis is useful for hiding dropdowns and modals when a user clicks away from them."
+    },
+    "alpine_js .stop": {
+        "prefix": ".stop",
+        "body": [
+            ".stop"
+        ],
+        "description": "Adding .stop to an event listener will call stopPropagation on the triggered event. For example, this means the \"click\" event won't bubble from the button to the outer <div>. Or in other words, when a user clicks the button, foo won't be set to 'bar'."
+    },
+    "alpine_js .window": {
+        "prefix": ".window",
+        "body": [
+            ".window"
+        ],
+        "description": "Adding .window to an event listener will install the listener on the global window object instead of the DOM node on which it is declared. This is useful for when you want to modify component state when something changes with the window, like the resize event."
+    },
+    "alpine_js .document": {
+        "prefix": ".document",
+        "body": [
+            ".document"
+        ],
+        "description": "You can also use the .document modifier to attach listeners to document instead of window."
+    },
+    "alpine_js .once": {
+        "prefix": ".once",
+        "body": [
+            ".once"
+        ],
+        "description": "Adding the .once modifier to an event listener will ensure that the listener will only be handled once. This is useful for things you only want to do once, like fetching HTML partials and such."
+    },
+    "alpine_js .debounce": {
+        "prefix": ".debounce",
+        "body": [
+            ".debounce.${1:750}"
+        ],
+        "description": "The debounce modifier allows you to add a \"debounce\" to a value update. In other words, the event handler will NOT run until a certain amount of time has elapsed since the last event that fired. When the handler is ready to be called, the last handler call will execute."
+    },
+    /* CDNS */
+    "alpine_js CDN": {
+        "prefix": "cdn-alpinejs",
+        "body": [
+            "<script defer src=\"https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js\"></script>"
+        ],
+        "description": "Add the following script to the end of your <head> section."
+    },
+    /* Plugins Cdns */
+    "alpine_js intersect_plugin": {
+        "prefix": "cdn-intersect",
+        "body": [
+            "<script defer src=\"https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js\"></script>"
+        ],
+        "description": "Add the following script to the end of your <head> section but before alpinejs cdn."
+    },
+    "alpine_js persist_plugin": {
+        "prefix": "cdn-persist",
+        "body": [
+            "<script defer src=\"https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js\"></script>"
+        ],
+        "description": "Add the following script to the end of your <head> section but before alpinejs cdn."
+    },
+    "alpine_js trap_plugin": {
+        "prefix": "cdn-trap",
+        "body": [
+            "<script defer src=\"https://unpkg.com/@alpinejs/trap@3.x.x/dist/cdn.min.js\"></script>"
+        ],
+        "description": "Add the following script to the end of your <head> section but before alpinejs cdn."
+    },
+    "alpine_js collapse_plugin": {
+        "prefix": "cdn-collapse",
+        "body": [
+            "<script defer src=\"https://unpkg.com/@alpinejs/collapse@3.x.x/dist/cdn.min.js\"></script>"
+        ],
+        "description": "Add the following script to the end of your <head> section but before alpinejs cdn."
+    },
+    "alpine_js morph_plugin": {
+        "prefix": "cdn-morph",
+        "body": [
+            "<script defer src=\"https://unpkg.com/@alpinejs/morph@3.x.x/dist/cdn.min.js\"></script>"
+        ],
+        "description": "Add the following script to the end of your <head> section but before alpinejs cdn."
+    },
+}

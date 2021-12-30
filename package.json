@@ -1,20 +1,29 @@
 {
-    "name": "alpine-snippets",
-    "displayName": "Alpine_Snippets",
-    "description": "helpful snippets to improve developer experience while using alpinejs in astro, ",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "^1.63.0"
-    },
-    "categories": [
-        "Snippets"
-    ],
-    "contributes": {
-        "snippets": [
-            {
-                "language": "astro , html",
-                "path": "./snippets/snippets.code-snippets"
-            }
-        ]
-    }
+  "name": "alpine-snippets",
+  "displayName": "Alpine_Snippets",
+  "description": "helpful snippets to improve developer experience while using alpinejs in astro, ",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sacarvy/alpine-snippets"
+  },
+  "icon": "icon.png",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./snippets/snippets.code-snippets"
+      },
+      {
+        "language": "astro",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
 }
