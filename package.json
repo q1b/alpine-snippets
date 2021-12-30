@@ -1,6 +1,10 @@
 {
   "name": "alpine-snippets",
   "displayName": "Alpine_Snippets",
+  "author": {
+    "name": "Sukhpreet Singh",
+    "email": "sukhpreetben10@gmail.com"
+  },
   "description": "helpful snippets to improve developer experience while using alpinejs in astro, ",
   "version": "0.0.1",
   "engines": {
