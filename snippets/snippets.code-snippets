@@ -18,6 +18,45 @@
         x-effect
         x-ignore      
 */
+/*
+    Magics
+        $el
+        $refs
+        $store
+        $watch
+        $dispatch
+        $nextTick
+        $root
+        $data
+        $id
+*/
+/*
+
+
+
+
+
+
+
+
+Modifiers
+        .prevent
+        .stop
+        .outside
+        .window
+        .document
+        .once
+        .debounce
+        .thottle
+        .self
+        .camel
+        .dot
+        .passive
+
+
+
+
+        */
 {
     "alpinejs x-data": {
         "prefix": "x-data",
@@ -251,12 +290,13 @@
         ],
         "description": "If you don't want Alpine to touch a specific section of your HTML,\n you can prevent it from doing so using x-ignore."
     },
+    /* Magics */
     "alpine_js $el": {
         "prefix": "$el",
         "body": [
             "\\$el"
         ],
-        "description": "$el is a magic property that can be used to retrieve the root component DOM node."
+        "description": "$el is a magic property that can be used to retrieve the current DOM node."
     },
     "alpine_js $refs": {
         "prefix": "$refs",
@@ -265,12 +305,19 @@
         ],
         "description": "$refs is a magic property that can be used to retrieve DOM elements marked with x-ref inside the component. This is useful when you need to manually manipulate DOM elements."
     },
-    "alpine_js $event": {
-        "prefix": "$event",
+    "Alpine_js $store": {
+        "prefix": "$store",
         "body": [
-            "\\$event"
+            "\\$store.${1:custom-event})"
         ],
-        "description": "$event is a magic property that can be used within an event listener to retrieve the native browser Event object."
+        "description": "You can use $store to conveniently access global Alpine stores registered using Alpine.store(...)."
+    },
+    "alpine_js $watch": {
+        "prefix": "$watch",
+        "body": [
+            "\\$watch('${1:open}', ${2:value => console.log(value)})"
+        ],
+        "description": "You can \"watch\" a component property using the $watch magic method. For example:"
     },
     "alpine_js $dispatch": {
         "prefix": "$dispatch",
@@ -286,20 +333,26 @@
         ],
         "description": "$nextTick is a magic property that allows you to only execute a given expression AFTER Alpine has made its reactive DOM updates. This is useful for times you want to interact with the DOM state AFTER it's reflected any data updates you've made."
     },
-    "alpine_js $watch": {
-        "prefix": "$watch",
+    "alpine_js $root": {
+        "prefix": "$root",
         "body": [
-            "\\$watch('${1:open}', ${2:value => console.log(value)})"
+            "$root"
         ],
-        "description": "You can \"watch\" a component property with the $watch magic method. In the above example, when the button is clicked and open is changed, the provided callback will fire and console.log the new value."
+        "description": "$root is a magic property that can be used to retrieve the root element of any Alpine component. In other words the closest element up the DOM tree that contains x-data."
     },
-    "alpine_js .away": {
-        "prefix": ".away",
+    "alpine_js $data": {
+        "prefix": "$root",
         "body": [
-            ".away"
+            "$root"
         ],
-        "description": "When the .away modifier is present, the event handler will only be executed when the event originates from a source other than itself, or its children.\r\n\r\nThis is useful for hiding dropdowns and modals when a user clicks away from them."
+        "description": "$data is a magic property that gives you access to the current Alpine data scope (generally provided by x-data)."
     },
+    "alpine_js $id": {
+        "prefix": "$id",
+        "body": "$id('${1:id_reference}')",
+        "description": "$id is a magic property that can be used to generate an element's ID and ensure that it is within on the page and won't conflict with other IDs of the same name."
+    },
+    /* Modifiers */
     "alpine_js .prevent": {
         "prefix": ".prevent",
         "body": [
@@ -312,14 +365,21 @@
         "body": [
             ".stop"
         ],
-        "description": "Adding .stop to an event listener will call stopPropagation on the triggered event. For example, this means the \"click\" event won't bubble from the button to the outer <div>. Or in other words, when a user clicks the button, foo won't be set to 'bar'."
+        "description": "Similar to .prevent, .stop is the equivalent of calling .stopPropagation() inside a listener on the browser event object."
+    },
+    "alpine_js .outside": {
+        "prefix": ".outside",
+        "body": [
+            ".outside"
+        ],
+        "description": ".outside is a convenience helper for listening for a click outside of the element it is attached to."
     },
     "alpine_js .window": {
         "prefix": ".window",
         "body": [
             ".window"
         ],
-        "description": "Adding .window to an event listener will install the listener on the global window object instead of the DOM node on which it is declared. This is useful for when you want to modify component state when something changes with the window, like the resize event."
+        "description": "When the .window modifier is present, Alpine will register the event listener on the root window object on the page instead of the element itself."
     },
     "alpine_js .document": {
         "prefix": ".document",
@@ -341,6 +401,28 @@
             ".debounce.${1:750}"
         ],
         "description": "The debounce modifier allows you to add a \"debounce\" to a value update. In other words, the event handler will NOT run until a certain amount of time has elapsed since the last event that fired. When the handler is ready to be called, the last handler call will execute."
+    },
+    "alpine_js .throttle": {
+        "prefix": ".throttle",
+        "body": [
+            ".throttle.${1:750ms}"
+        ],
+        "description": ".throttle is similar to .debounce except it will release a handler call every 250 milliseconds instead of deferring it indefinitely."
+    },
+    "alpine_js .self": {
+        "prefix": ".self",
+        "body": ".self",
+        "description": "By adding .self to an event listener, you are ensuring that the event originated on the element it is declared on, and not from a child element."
+    },
+    "alpine_js .camel": {
+        "prefix": ".camel",
+        "body": ".camel",
+        "description": "camelCasing inside HTML attributes is not supported, adding the .camel modifier is necessary for Alpine to camelCase the event name internally"
+    },
+    "alpine_js .passive": {
+        "prefix": ".passive",
+        "body": ".passive",
+        "description": "If you are listening for touch events, it's important to add .passive to your listeners to not block scroll performance."
     },
     /* CDNS */
     "alpine_js CDN": {

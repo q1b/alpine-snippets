@@ -1,15 +1,13 @@
-# Alpine-snippets ( snippets for [Alpinejs](https://alpinejs.dev) )
+# Change Log
 
-## Features
+All notable changes to the "alpine-snippets" extension will be documented in this file.
 
-Includes all directive simple defination, as well their snippets which are going to make our life eaiser will using alpinejs,
-along with that their is place for two supported languages yet astro and html by default.
+Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-type cdn to get currently used cdn link for alpinejs 3
-type cdn-[plugin-name] to get cdn link for that alpinejs official plugin
+## [Unreleased]
 
-## Release Notes
+- 0.1.0
+  added all magic properties defination as well snippets for each of them.
 
-### 0.0.1
-
-**Enjoy!**
+- Initial release
+  added directives snippets, as well cdn
